@@ -200,15 +200,41 @@ public class CassonettoDAO {
         double capacita = rs.getDouble("capacita");
         double valore = rs.getDouble("valore");
 
+        // ====== LEGGI DATE E ORARI ======
+        LocalDate dataInst = null;
+        LocalTime oraInst = null;
+
+        if (rs.getDate("data_installazione") != null)
+            dataInst = rs.getDate("data_installazione").toLocalDate();
+
+        if (rs.getTime("ora_installazione") != null)
+            oraInst = rs.getTime("ora_installazione").toLocalTime();
+
+        LocalDate dataSvuot = null;
+        LocalTime oraSvuot = null;
+
+        if (rs.getDate("data_svuotamento") != null)
+            dataSvuot = rs.getDate("data_svuotamento").toLocalDate();
+
+        if (rs.getTime("ora_svuotamento") != null)
+            oraSvuot = rs.getTime("ora_svuotamento").toLocalTime();
+
+        // ====== CREA IL CASSONETTO ======
         Cassonetto c = switch (TipologiaRifiuto.valueOf(tipo)) {
-            case Organico -> new Organico(codice, lat, lon, null, null, capacita);
-            case Vetro -> new Vetro(codice, lat, lon, null, null, (int) capacita);
-            case Carta -> new Carta(codice, lat, lon, null, null, capacita);
-            case Plastica -> new Plastica(codice, lat, lon, null, null, capacita);
-            case Indifferenziata -> new Indifferenziata(codice, lat, lon, null, null, capacita);
+            case Organico -> new Organico(codice, lat, lon, dataInst, oraInst, capacita);
+            case Vetro -> new Vetro(codice, lat, lon, dataInst, oraInst, (int) capacita);
+            case Carta -> new Carta(codice, lat, lon, dataInst, oraInst, capacita);
+            case Plastica -> new Plastica(codice, lat, lon, dataInst, oraInst, capacita);
+            case Indifferenziata -> new Indifferenziata(codice, lat, lon, dataInst, oraInst, capacita);
         };
 
+        // ====== IMPOSTA DATA SVUOTAMENTO SE ESISTE ======
+        c.setDataSvuotamento(dataSvuot);
+        c.setOraSvuotamento(oraSvuot);
+
+        // ====== IMPOSTA IL VALORE ======
         c.aggiorna(valore);
+
         return c;
     }
 }

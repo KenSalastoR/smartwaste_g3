@@ -10,13 +10,11 @@ public class HomeController {
 
     @FXML private Button btnVisualizza;
     @FXML private Button btnAggiungi;
-    @FXML private Button btnSvuota;
 
     @FXML
     public void initialize() {
         btnVisualizza.setOnAction(e -> apri("visualizza.fxml"));
         btnAggiungi.setOnAction(e -> apri("aggiungi.fxml"));
-        btnSvuota.setOnAction(e -> apri("svuota.fxml"));
     }
 
     private void apri(String nomeFXML) {

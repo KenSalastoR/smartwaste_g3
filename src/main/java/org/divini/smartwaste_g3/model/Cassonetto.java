@@ -40,6 +40,23 @@ public abstract class Cassonetto {
         return this.capacita;
     }
 
+    public LocalDate getDataInstallazione() {
+        return dataInstallazione;
+    }
+
+    public LocalTime getOraInstallazione() {
+        return oraInstallazione;
+    }
+
+    public LocalDate getDataSvuotamento() {
+        return dataSvuotamento;
+    }
+
+    public LocalTime getOraSvuotamento() {
+        return oraSvuotamento;
+    }
+
+
     public void svuota() {
         this.dataSvuotamento = LocalDate.now();
         this.oraSvuotamento = LocalTime.now();
@@ -51,6 +68,29 @@ public abstract class Cassonetto {
 
     public abstract void aggiorna(double var1);
 
+    public void setLatitudine(double latitudine) {
+        this.latitudine = latitudine;
+    }
+
+    public void setLongitudine(double longitudine) {
+        this.longitudine = longitudine;
+    }
+
+    public void setDataInstallazione(LocalDate dataInstallazione) {
+        this.dataInstallazione = dataInstallazione;
+    }
+
+    public void setOraInstallazione(LocalTime oraInstallazione) {
+        this.oraInstallazione = oraInstallazione;
+    }
+
+    public void setDataSvuotamento(LocalDate dataSvuotamento) {
+        this.dataSvuotamento = dataSvuotamento;
+    }
+
+    public void setOraSvuotamento(LocalTime oraSvuotamento) {
+        this.oraSvuotamento = oraSvuotamento;
+    }
     /* */@Override
     public String toString() {
         return getClass().getSimpleName() + " [" + codice + "] - Riempimento: "

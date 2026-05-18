@@ -25,3 +25,14 @@
     -fx-font-weight: bold;
     -fx-text-fill: #4A4A4A;
 }
+
+.input-ok {
+    -fx-border-color: #2ecc71;
+    -fx-border-width: 2px;
+}
+
+.input-error {
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 2px;
+}
+

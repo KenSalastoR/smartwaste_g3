@@ -27,8 +27,8 @@
     </center>
 
     <bottom>
-        <Button text="Torna alla Home"
-                fx:id="btnHome"
+        <Button text="Torna a Visualizza"
+                fx:id="btnVisualizza"
                 style="-fx-padding: 10; -fx-font-size: 16px;"
                 BorderPane.alignment="CENTER"/>
     </bottom>

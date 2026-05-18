@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.divini.smartwaste_g3.controller.ModificaController"
+      spacing="15" alignment="CENTER" style="-fx-padding: 20;">
+
+    <Label text="Modifica Cassonetto" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="txtLat" promptText="Latitudine"/>
+    <TextField fx:id="txtLon" promptText="Longitudine"/>
+    <TextField fx:id="txtValore" promptText="Valore attuale (peso/volume/bottiglie)"/>
+
+    <Button fx:id="btnSalva" text="Salva Modifiche" style="-fx-padding: 10; -fx-font-size: 16px;"/>
+    <Button fx:id="btnAnnulla" text="Annulla" style="-fx-padding: 10; -fx-font-size: 16px;"/>
+
+</VBox>

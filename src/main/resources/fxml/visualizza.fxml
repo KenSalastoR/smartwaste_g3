@@ -15,17 +15,34 @@
     </top>
 
     <center>
-        <TableView fx:id="tabellaCassonetti" prefWidth="800" prefHeight="500">
-            <columns>
-                <TableColumn fx:id="colCodice" text="Codice" prefWidth="80"/>
-                <TableColumn fx:id="colLat" text="Latitudine" prefWidth="100"/>
-                <TableColumn fx:id="colLon" text="Longitudine" prefWidth="100"/>
-                <TableColumn fx:id="colTipo" text="Tipologia" prefWidth="120"/>
-                <TableColumn fx:id="colValore" text="Valore" prefWidth="100"/>
-                <TableColumn fx:id="colCapacita" text="Capacità" prefWidth="100"/>
-                <TableColumn fx:id="colPercentuale" text="Riempimento (%)" prefWidth="150"/>
-            </columns>
-        </TableView>
+        <VBox spacing="10" style="-fx-padding: 10;">
+
+            <!-- FILTRI -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="txtSearch" promptText="Cerca per codice o tipologia..." />
+                <Button fx:id="btnSearch" text="🔍" />
+                <ComboBox fx:id="cmbTipo" promptText="Filtra per tipologia"/>
+                <ComboBox fx:id="cmbPercentuale" promptText="Percentuale"/>
+            </HBox>
+
+            <!-- TABELLA -->
+            <TableView fx:id="tabellaCassonetti" prefWidth="800" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colCodice" text="Codice" prefWidth="80"/>
+                    <TableColumn fx:id="colLat" text="Latitudine" prefWidth="100"/>
+                    <TableColumn fx:id="colLon" text="Longitudine" prefWidth="100"/>
+                    <TableColumn fx:id="colTipo" text="Tipologia" prefWidth="120"/>
+                    <TableColumn fx:id="colDataInst" text="Data Installazione" prefWidth="150"/>
+                    <TableColumn fx:id="colOraInst" text="Ora Installazione" prefWidth="150"/>
+                    <TableColumn fx:id="colDataSvuot" text="Data Svuotamento" prefWidth="150"/>
+                    <TableColumn fx:id="colOraSvuot" text="Ora Svuotamento" prefWidth="150"/>
+                    <TableColumn fx:id="colValore" text="Valore" prefWidth="100"/>
+                    <TableColumn fx:id="colCapacita" text="Capacità" prefWidth="100"/>
+                    <TableColumn fx:id="colPercentuale" text="Riempimento (%)" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+        </VBox>
     </center>
 
     <bottom>
@@ -36,6 +53,12 @@
 
             <Button fx:id="btnElimina"
                     text="Elimina Cassonetto"
+                    style="-fx-padding: 10; -fx-font-size: 16px;"/>
+            <Button text="Modifica Cassonetto"
+                    fx:id="btnModifica"
+                    style="-fx-padding: 10; -fx-font-size: 16px;"/>
+            <Button fx:id="btnSvuota"
+                    text="Svuota Cassonetti"
                     style="-fx-padding: 10; -fx-font-size: 16px;"/>
         </HBox>
     </bottom>

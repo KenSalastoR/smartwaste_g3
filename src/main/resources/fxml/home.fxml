@@ -32,7 +32,6 @@
         <VBox alignment="CENTER" spacing="20">
             <Button text="Visualizza Cassonetti" fx:id="btnVisualizza" prefWidth="250"/>
             <Button text="Aggiungi Cassonetto" fx:id="btnAggiungi" prefWidth="250"/>
-            <Button text="Svuota Cassonetti" fx:id="btnSvuota" prefWidth="250"/>
         </VBox>
     </center>
 

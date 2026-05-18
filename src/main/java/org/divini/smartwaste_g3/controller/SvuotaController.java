@@ -22,7 +22,7 @@ public class SvuotaController {
     @FXML private TableColumn<Cassonetto, Double> colCapacita;
     @FXML private TableColumn<Cassonetto, Double> colPercentuale;
 
-    @FXML private Button btnHome;
+    @FXML private Button btnVisualizza;
 
     private CassonettoDAO dao;
 
@@ -57,8 +57,8 @@ public class SvuotaController {
             }
         });
 
-        // Torna alla home
-        btnHome.setOnAction(e -> tornaHome());
+        // Torna a visualizza
+        btnVisualizza.setOnAction(e -> tornaVisualizza());
     }
 
     private void caricaTabella() {
@@ -68,19 +68,14 @@ public class SvuotaController {
 
     private void svuotaCassonetto(Cassonetto c) {
         try {
-            // 1) Marca la fecha y hora de svuotamento
             c.svuota();
 
-            // 2) Pone el valor a 0
             c.aggiorna(0);
 
-            // 3) Actualiza en la base de datos
             dao.aggiorna(c);
 
-            // 4) Recarga la tabla (solo los >90%)
             caricaTabella();
 
-            // 5) Mensaje opcional
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("Cassonetto " + c.getCodice() + " svuotato con successo!");
@@ -91,10 +86,10 @@ public class SvuotaController {
         }
     }
 
-    private void tornaHome() {
+    private void tornaVisualizza() {
         try {
-            Stage stage = (Stage) btnHome.getScene().getWindow();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/home.fxml")));
+            Stage stage = (Stage) btnVisualizza.getScene().getWindow();
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/visualizza.fxml")));
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();
